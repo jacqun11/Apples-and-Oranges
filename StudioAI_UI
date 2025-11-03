@@ -1,0 +1,19 @@
+import gradio as gr
+
+
+def greet(chat):
+    return "I am in testing, This is text,AAAAAASAJHLDKJSHDALKJBDSKLJSABLKJSADBLKSAJDBSLKJBSDAKLJSABDLKSJADBSAKLDJBASDLKJSABDLKJSADBLKSDAJBSALKJABSDLJKADS"
+
+
+with gr.Blocks(theme=gr.themes.Default(primary_hue="green", secondary_hue="green")) as demo:
+    gr.HTML("<h1><center>StudioAI<center></h1>")
+    with gr.Row():
+        chat_output = gr.Textbox(label="",lines=30)
+    with gr.Row():
+        chatbox= gr.Textbox(label="")
+    with gr.Row():
+        input_button = gr.Button("chat")
+    input_button.click(fn=greet,inputs=chatbox,outputs=chat_output,api_name="greet" )
+
+if __name__ == "__main__":
+    demo.launch()
